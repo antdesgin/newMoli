@@ -1,0 +1,107 @@
+.audio-list-box {
+  padding-bottom: 0;
+}
+.comment-item{
+  background: #FFFFFF;
+  padding-top:30rpx;
+  padding-bottom: 20rpx;
+  margin-bottom: 2rpx;
+}
+.comment-user-image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 24rpx;
+}
+.comment-user-image image{
+  width: 70rpx;
+  height: 70rpx;
+}
+.comment-user-info{
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.comment-user-name{
+  font-size: 28rpx;
+  color: #576B95;
+  position: relative;
+  top: -8rpx;
+}
+.comment-time{
+  font-size: 20rpx;
+  color: #9B9B9B;
+  position: relative;
+  top: -6rpx;
+}
+.comment-item .praises{
+  float: right;
+  width: 66rpx;
+  height: 54rpx;
+  background: url(http://file.xsawe.top/weixinApp/icon-unlike.png) no-repeat center;
+  background-size: 54rpx;
+  font-size: 22rpx;
+  color: #9B9B9B;
+  line-height: 57rpx;
+  padding-left: 54rpx;
+  background-position-x: left;
+  margin-right: 10rpx;
+  margin-top:5rpx;
+}
+.comment-item .praises.like{
+  background: url(http://file.xsawe.top/weixinApp/icon-like.png) no-repeat center;
+  background-position-x: left;
+  background-size: 54rpx;
+}
+.comment-audio-box{
+  width: 420rpx;
+  height: 70rpx;
+  background: #6BD379;
+  border-radius: 45rpx;
+  margin-left: 114rpx;
+  margin-top: 24rpx;
+  margin-bottom: 24rpx;
+}
+.comment-play-btn{
+  width: 40rpx;
+  height: 40rpx;
+  background: url(http://file.xsawe.top/weixinApp/comment-play.png) no-repeat center;
+  background-size: 40rpx;
+  margin-left: 18rpx;
+  position: relative;
+  top: 16rpx;
+  display: inline-block;
+}
+.comment-play-btn.on{
+  background: url(http://file.xsawe.top/weixinApp/comment-pasue.png) no-repeat center;
+  background-size: 40rpx;
+}
+.comment-audio{
+  width: 248rpx;
+  height: 38rpx;
+  background: url(http://file.xsawe.top/weixinApp/yin-default.png) no-repeat center;
+  background-size: 248rpx 38rpx;
+  opacity: 0.7;
+  display: inline-block;
+  position: relative;
+  top: 15rpx;
+  left: 10rpx;
+  overflow: hidden;
+}
+.comment-audio-time{
+  float: right;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  line-height: 74rpx;
+  margin-right: 24rpx;
+}
+.comment-text{
+  font-size: 26rpx;
+  color: #525252;
+  width: 520rpx;
+  margin: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

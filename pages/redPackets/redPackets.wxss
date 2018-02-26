@@ -1,0 +1,348 @@
+page{
+  height: 100%;
+  width: 100%;
+  overflow-y:hidden;
+}
+scroll-view{
+  height: 100%;
+}  
+.container{
+  height: 100%;
+  position: relative;
+  display: block; 
+  background-image: url(http://file.xsawe.top/weixinApp/bg.png);
+  background-size: cover;
+  /* display: flex;  */
+  flex-direction:column;
+}
+.top-btn{
+  position: relative;
+  top: 14rpx;
+  height: 90rpx;
+}
+.top-btn view{
+  width: 140rpx;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  font-size: 24rpx;
+  color: #FAD48E;
+  text-align: center;
+  line-height: 41rpx;
+  position: absolute;
+  right: 0;
+}
+.my-money{
+  top: 50rpx;
+}
+.mian-title{
+  font-size: 96rpx;
+  color: #FFCC66;
+  font-weight: bold;
+  width: 604rpx;
+  margin: auto;
+  text-align: justify;
+  margin-top: 22rpx;
+}
+.mian-info{
+  font-size: 36rpx;
+  color: #FFCC66;
+  text-align: center;
+  margin-top: 74rpx;
+}
+.mian-info text{
+  display: block;
+}
+.activate-btn,.weixin-share,.activate-btn1,.activate-new-btn{
+  width: 620rpx;
+  height: 100rpx;
+  background: #FFE564;
+  box-shadow: 0 4rpx 20rpx 0 rgba(109,0,0,0.50);
+  border-radius: 50rpx;
+  margin: auto;
+  font-size: 32rpx;
+  color: #7F0615;
+  text-align: center;
+  line-height: 100rpx;
+  font-weight: 500;
+  margin-top: 80rpx;
+}
+.activate-btn{
+  margin-top:50rpx;
+}
+.activate-new-btn{
+  background: #FF7B22;
+  margin-top: 20rpx;
+}
+.weixin-share,.activate-btn1{
+  margin-top: 20rpx;
+}
+.rule-box{
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  flex-direction:column;
+  justify-content:space-between;
+  box-sizing:border-box;
+  z-index: 1;
+}
+.rule-box.show{
+  display: flex;
+}
+.rule-content{
+  width: 636rpx;
+  height: 1050rpx;
+  background: url(http://file.xsawe.top/weixinApp/rule-bg.png);
+  background-size: contain;
+  margin: auto;
+}
+.rule-content text{
+  display: block;
+  color: #F8C868;
+  font-size: 28rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  text-align: justify;
+  margin-bottom: 20rpx;
+}
+.rule-content .rule-title{
+  font-size: 36rpx;
+  text-align: center;
+  margin-top: 52rpx;
+  color: #F8C868;
+  margin-bottom: 154rpx;
+}
+.close-btn{
+  width: 60rpx;
+  height: 60rpx;
+  background: url(http://file.xsawe.top/weixinApp/close-btn.png);
+  background-size: 60rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.main-img{
+  width: 100%;
+  height: 314rpx;
+  background: url(http://file.xsawe.top/weixinApp/main-img.png) no-repeat center;
+  background-size: 738rpx 314rpx;
+  margin-top: -50rpx;
+}
+.notice-box{
+  margin-top: 16rpx;
+  height: 40rpx;
+}
+.notice-box > view{
+  width: 340rpx;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20rpx;
+  color: #FAD48E;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 40rpx;
+  float: left;
+  overflow: hidden;
+}
+.notice-box > view:first-child{
+  margin-left: 30rpx;
+}
+.notice-box > view:last-child{
+  float: right;
+  margin-right: 30rpx;
+}
+ .notice-box > view > view{
+  overflow: hidden;
+  border-radius: 20rpx;
+  position:relative;
+} 
+.start{
+  position:relative;
+  animation:users 3s infinite;
+  -webkit-animation:users 3s infinite;
+}
+.group-users{
+  width: 520rpx;
+  height: 102rpx;
+  margin: auto;
+  display: flex;
+  margin-top: 32rpx;
+}
+.group-users > view{
+  flex: 1;
+  position: relative;
+}
+.group-user-item{
+  width: 100rpx;
+  height: 100rpx;
+  border: 4rpx solid #FFCC66;
+  border-radius: 100rpx;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  margin: auto;
+  font-size: 40rpx;
+  color: #9B9B9B;
+  text-align: center;
+  line-height: 100rpx;
+  overflow: hidden;
+}
+
+.group-user-item image{
+  width: 92rpx;
+  height: 92rpx;
+}
+.group-users view:nth-child(2) .group-user-item {
+  margin-left: 10rpx;
+}
+.group-users view:nth-child(3) .group-user-item {
+  margin-left: 20rpx;
+}
+.group-users view:first-child .group-user-item{
+  float: left;
+} 
+.group-users view:last-child .group-user-item{
+  float: right;
+}
+.group-users-leader{
+  width: 80rpx;
+  height: 32rpx;
+  background: #FFCC66;
+  border-radius: 16rpx;
+  text-align: center;
+  color: #8B572A;
+  line-height: 32rpx;
+  font-size: 24rpx;
+  position: absolute;
+  left: 10rpx;
+  bottom: 0;
+}
+.group-notice{
+  color: #FFCC66;
+  text-align: center;
+  margin-top: 22rpx;
+}
+.group-notice view:first-child{
+  font-size: 28rpx;
+}
+.group-notice view:last-child{
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.result-box{
+  width: 620rpx;
+  height: 380rpx;
+  border: 4rpx solid rgba(255, 229, 100, 0.9);
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  margin: auto;
+  background: rgba(208, 2, 27, 0.9);
+  margin-top: 40rpx;
+  color: #FFCC66;
+  margin-bottom: 40rpx;
+}
+.result-title{
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 24rpx;
+  margin-top: 22rpx;
+  margin-bottom: 24rpx;
+}
+.result-item{
+  width: 426rpx;
+  height: 50rpx;
+  margin: auto;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.result-item view{
+  display: inline-block;
+}
+.result-image{
+  width:50rpx;
+  height:50rpx;
+  border:2rpx solid #FFCC66;
+  border-radius:100%;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+.result-image image{
+  width: 46rpx;
+  height: 46rpx;
+}
+.result-name{
+  font-size: 28rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  position: absolute;
+  margin-left: 20rpx;
+  width: 120rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.result-best{
+  font-size: 24rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  float: right;
+  margin-right: 10rpx;
+  background: url(http://file.xsawe.top/weixinApp/corn.png) no-repeat left;
+  background-size: 40rpx 28rpx;
+  padding-left: 43rpx;
+}
+.result-money{
+  float: right;
+  font-size: 28rpx;
+  height:50rpx;
+  line-height: 50rpx;
+}
+
+@keyframes users{
+	0%{ top:10rpx; opacity: 0.1}
+	20%{ top:0;opacity: 1}
+	60%{ top:0;opacity: 1}
+	100%{ top:-32rpx; opacity: 0.1}
+}
+
+@-webkit-keyframes users{
+	0%{ top:10rpx; opacity: 0.1}
+	20%{ top:0;opacity: 1}
+	60%{ top:0;opacity: 1}
+	100%{ top:-32rpx; opacity: 0.1}
+}
+.money-result{
+  width: 100%;
+  text-align: center;
+  color: #FFE564;
+  margin-top: 36rpx;
+}
+.money-result view:first-child{
+  font-size: 28rpx;
+}
+.money-result view:last-child{
+  font-size: 144rpx;
+  font-weight: bold;
+}
+.money-result view text{
+  font-size: 36rpx;
+  margin-left: 10rpx;
+}
+.target-home{
+  width: 90rpx;
+  height: 90rpx;
+  background: rgba(255,255,255,0.40);
+  border: 2px solid rgba(255,255,255,0.50);
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 95rpx;
+  position: fixed;
+  bottom: 220rpx;
+  right: 25rpx;
+  border-radius: 100%;
+  font-size: 28rpx;
+  font-weight: bold;
+}

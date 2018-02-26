@@ -1,0 +1,148 @@
+<scroll-view scroll-y>
+  <view class="container">
+    <modal hidden="{{modalStatus}}" class="modal-box" title="请绑定手机号" confirm-text="确定" no-cancel="true" bindconfirm="confirm" wx:if="{{register}}">
+    <input type="number" maxlength="11" bindinput="bindPhoneInput" class="phone-input" placeholder="请输入手机号" auto-focus/>
+    <view class="get-phone-auth" data-phone="{{phone}}" data-status="{{authStatus}}" bindtap="getPhoneAuth">{{authTip}}</view>
+     <input type="text" maxlength="4" bindinput="bindAuthInput" class="phone-input" placeholder="请输入验证码" auto-focus/>
+  </modal>
+    <view class="top-btn">
+        <view class="rule-btn" bindtap="showRule">活动规则</view>
+        <view class="my-money" bindtap="bindMyMoneyTap">我的收入</view>
+    </view>
+    <view class="mian-title" wx:if="{{recordList.length==0}}">
+      激活红包火山一起瓜分50元
+    </view>
+     <!-- && userId_ != null -->
+    <view class="main-img" wx:if="{{recordList.length>0 && userId_ != null}}"></view>
+    <view class="mian-info" wx:if="{{recordList.length==0}}">
+      <text>火山中埋藏着大量红包</text>
+      <text>快“激活火山”和小伙伴们瓜分红包吧！</text>
+    </view>
+    <view class="notice-box" wx:if="{{recordList.length>0}}">
+      <view><view class="{{start==true?'start':''}}">{{tip1}}</view></view>
+      <view><view class="{{start==true?'start':''}}">{{tip2}}</view></view>
+    </view>
+    <view class="money-result-box" wx:if="{{showResult}}">
+      <view class="money-result">
+        <view>恭喜你，已成功抢到现金</view>
+        <view>{{moneyResult}}<text>元</text></view>
+      </view>
+      <view class="activate-btn1" bindtap="getMoney">去提现</view>
+      <form bindsubmit="goto_index" report-submit="true">
+        <button class="form_button" form-type="submit">
+          <button class="activate-new-btn" bindgetuserinfo="getUserInfo" open-type="getUserInfo">
+          <!-- bindtap="createVolcano" -->
+            激活一个新火山
+          </button>
+        </button>
+      </form>
+    </view>
+    <view wx:if="{{!showResult}}">
+     <!-- || userId_ != null -->
+    <view class="group-users" wx:if="{{recordList.length>0 && userId_ != null}}">
+      <view wx:for="{{recordList}}" wx:key="{{index}}">
+        <view wx:if="{{item.userType == 1}}">
+          <view class="group-users-leader">团长</view>
+        </view>
+        <view class="group-user-item">
+          <image mode="aspectFit" src="{{item.userImg}}"></image>
+        </view>
+      </view>
+      <view  wx:for="{{emptyArry}}" wx:key="{{index}}">
+        <view class="group-user-item">?</view>
+      </view>
+    </view> 
+     <!-- || userId_ != null -->
+    <view class="group-notice" wx:if="{{recordList.length>0 && userId_ != null}}">
+      <view wx:if="{{emptyArry.length!=0}}">
+        还差{{emptyArry.length}}人即可激活火山，快去邀请好友抢红包
+      </view>
+      <view wx:elif="{{emptyArry.length==0 && isJoin}}">
+        成员已组满4人，红包火山即将喷发！
+      </view>
+      <view wx:if="{{emptyArry.length!=0}}">{{countdown}}后结束</view>
+      <view wx:elif="{{emptyArry.length==0 && !isJoin}}">
+        很遗憾，该红包被瓜分完
+      </view>
+    </view>
+    <form bindsubmit="goto_index" report-submit="true">
+      <button class="form_button" form-type="submit">
+        <button class="activate-btn" wx:if="{{recordList.length==0}}" bindgetuserinfo="getUserInfo" open-type="getUserInfo">
+        立即激活火山瓜分红包
+        </button> 
+      </button>
+    </form>
+    
+    <button class="weixin-share" wx:if="{{recordList.length>0 && recordList.length<4 && isJoin}}" open-type="share">
+      邀请微信好友一起抢红包
+    </button>
+    <form bindsubmit="goto_index" report-submit="true">
+      <button class="form_button" form-type="submit">
+        <view class="activate-btn" wx:if="{{recordList.length==4}}" bindtap="openVolcano">
+          立即激活火山
+        </view>
+      </button>
+    </form>
+    <view wx:if="{{recordList.length>0 && emptyArry.length!=0 && userId != recordList[0].userId}}">
+      <form bindsubmit="goto_index" report-submit="true">
+        <button class="form_button" form-type="submit">
+          <view class="activate-btn1" bindtap="entryVolcano" wx:if="{{!isJoin}}">
+          激活火山抢红包
+          </view>
+        </button>
+      </form>
+      <form bindsubmit="goto_index" report-submit="true">
+        <button class="form_button" form-type="submit">
+          <button class="activate-new-btn" bindgetuserinfo="getUserInfo" open-type="getUserInfo" wx:if="{{!isJoin}}">
+          激活一个新火山
+          </button>
+        </button>
+      </form>
+    </view>
+    </view>
+    <!-- <view class="result-box">
+      <text class="result-title" space="nbsp">—     看好友手气    —</text>
+      <view class="result-item">
+        <view class="result-image">
+          <image mode="aspectFit" src="http://file.xsawe.top/file/iOS_15131073407325699AA42-AD42-44B0-BE64-03CA0EB16FB2.jpg?x-oss-process=image/resize,w_70,limit_0"></image>
+        </view>
+        <view class="result-name">摩尔</view>
+        <view class="result-money">2.05元</view>
+      </view>
+      <view class="result-item">
+        <view class="result-image">
+          <image mode="aspectFit" src="http://file.xsawe.top/file/iOS_15131073407325699AA42-AD42-44B0-BE64-03CA0EB16FB2.jpg?x-oss-process=image/resize,w_70,limit_0"></image>
+        </view>
+        <view class="result-name">摩尔</view>
+        <view class="result-money">2.05元</view>
+        <view class="result-best">手气最佳</view>
+      </view>
+      <view class="result-item">
+        <view class="result-image">
+          <image mode="aspectFit" src="http://file.xsawe.top/file/iOS_15131073407325699AA42-AD42-44B0-BE64-03CA0EB16FB2.jpg?x-oss-process=image/resize,w_70,limit_0"></image>
+        </view>
+        <view class="result-name">摩尔</view>
+        <view class="result-money">2.05元</view>
+      </view>
+      <view class="result-item">
+        <view class="result-image">
+          <image mode="aspectFit" src="http://file.xsawe.top/file/iOS_15131073407325699AA42-AD42-44B0-BE64-03CA0EB16FB2.jpg?x-oss-process=image/resize,w_70,limit_0"></image>
+        </view>
+        <view class="result-name">摩尔</view>
+        <view class="result-money">2.05元</view>
+      </view>
+    </view> -->
+    <view class="rule-box {{isShow==true?'show':''}}">
+      <view class="close-btn" bindtap="close"></view>
+      <view class="rule-content">
+        <text class="rule-title" space="nbsp">—     抢红包规则    —</text>
+        <text>- 用户可邀请好友激活红包火山，满4人则成功激活。</text>
+        <text>- 团员中的茉莉新用户越多，则红包火山的奖励金额越多，一次红包雨最高可瓜分50元现金。（茉莉新用户为未登录过茉莉APP的用户）</text>
+        <text>- 若团长已经登录过茉莉，成功激活火山后，团员中的新用户登录茉莉时将自动成为团长的徒弟，师徒双方都会获得额外现金奖励。</text>
+        <text>- 在小程序中瓜分的奖励，会同步到你的茉莉app账号下，可下载并用微信登录茉莉app提现。（只有所有团员都登录过app后，奖励才会到账，所以会有一定延迟）</text>
+        <text>- 每个红包火山发起后24小时未组满4人即激活失败，不可瓜分大奖。</text>
+      </view>
+    </view>
+    <view hidden="{{!isSharePage}}" class="target-home" bindtap="targetHome">首页</view>
+  </view>
+</scroll-view>

@@ -1,0 +1,395 @@
+/**app.wxss**/
+page{
+  background: #F4F4F4;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+.gif{
+  display: block;
+  /* width: 200rpx; */
+  height: 202rpx;
+  position: fixed;
+  bottom: 120rpx;
+  right: 10rpx;
+  z-index: 1000;
+  border: none !important;
+}
+.gif.iphoneXfix{
+  bottom: 134rpx;
+}
+.gif image{
+  width: 200rpx;
+  height: 202rpx;
+}
+.audio-list-box{
+  padding-bottom: 78rpx;
+}
+.audio-list-box.iphoneXfix{
+  padding-bottom: 92rpx;
+}
+.audio-item{
+  background: #FFFFFF;
+  padding: 26rpx 0; 
+  margin-bottom: 20rpx;
+}
+
+.user-image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 24rpx;
+}
+.user-info{
+  display: inline-block;
+  margin-left: 20rpx;
+  position: relative;
+  top: -3rpx;
+}
+.user-image image{
+  width: 70rpx;
+  height: 70rpx;
+}
+.user-name{
+  font-size: 28rpx;
+  color: #525252;
+}
+.user-city{
+  font-size: 24rpx;
+  color: #C6C6C6;
+  position: relative;
+  top: -1rpx;
+}
+button.user-share{
+  display: block;
+  float: right;
+  font-size: 24rpx;
+  color: #C6C6C6;
+  margin-right: 24rpx;
+  margin-top:20rpx;
+  border: none;
+  background: none;
+}
+.share-btn{
+  display: inline-block;
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  background-image: url(http://file.xsawe.top/weixinApp/share.png);
+  background-size: 28rpx 28rpx;
+  position: relative;
+  top: 4rpx;
+}
+
+.questions-btn {
+  width: 700rpx;
+  height: 130rpx;
+  overflow: hidden;
+  text-align: center;
+  font-size: 22rpx;
+  color: #C6C6C6;
+  display: flex;
+  margin: auto;
+}
+
+.voice-l{
+  width: 70rpx;
+  height: 46rpx;
+  position: relative;
+  top: 27rpx;
+  left: 30rpx;
+}
+.voice-l view,.voice-l image{
+  float: right;
+}
+.voice-r{
+  width: 70rpx;
+  height: 46rpx;
+  position: relative;
+  top: 27rpx;
+  left: -30rpx;
+}
+.voice-r view,.voice-r image{
+  float: left;
+}
+
+.voice-l view,.voice-r view{
+  width: 70rpx;
+  overflow: hidden;
+  display: none;
+}
+
+.playing{
+    display: block !important;
+    animation:widthChange 1s infinite normal;
+    -webkit-animation:widthChange 1s infinite normal;
+    
+}
+/*css3动画*/
+@keyframes widthChange{
+    from {width: 0rpx;}
+    to {width: 70rpx;}
+}
+@-webkit-keyframes widthChange{
+    from {width: 0rpx;}
+    to {width: 70rpx;}
+}
+
+.questions-btn view image{
+  width: 70rpx;
+  height: 46rpx;
+}
+.questions-btn a {
+  height: 130rpx;
+  display: inline-block;
+  flex: 1;
+}
+.questions-btn .praises {
+  background: url(http://file.xsawe.top/weixinApp/icon-unlike.png) no-repeat center;
+  background-size: 68rpx 68rpx;
+  position: relative;
+  background-position-y: 15rpx; 
+}
+.questions-btn .praises.like{
+  background: url(http://file.xsawe.top/weixinApp/icon-like.png) no-repeat center;
+  background-size: 68rpx 68rpx;
+  position: relative;
+  background-position-y: 15rpx; 
+}
+.questions-btn .praises text{
+  position: relative;
+  top: 85rpx;
+}
+
+.questions-btn .plays {
+  background: url(http://file.xsawe.top/weixinApp/icon-play.png) no-repeat center;
+  background-size: 100rpx;
+  background-position-y: top;
+}
+.questions-btn .plays text{
+  position: relative;
+  top:100rpx;
+}
+.plays.on{
+  background: url(http://file.xsawe.top/weixinApp/icon-pasue.png) no-repeat center;
+  background-size: 100rpx;
+  background-position-y: top;
+}
+.questions-btn .replys{
+  background: url(http://file.xsawe.top/weixinApp/icon-message.png) no-repeat center;
+  background-size: 68rpx 68rpx;
+  background-position-y: 15rpx; 
+}
+.questions-btn .replys text{
+  position: relative;
+  top: 85rpx;
+}
+.questions-con{
+  background: #F9F9F9;
+  border-radius: 10rpx;
+  color: #4A4A4A;
+  font-size: 32rpx;
+  position: relative;
+  margin-top: 30rpx;
+  margin: 30rpx 24rpx 0 24rpx;
+  padding: 25rpx 0;
+}
+.questions-con view{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  position: relative;
+  text-align: justify;
+  box-sizing: border-box;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.questions-audio{
+  width: 702rpx;
+  height: 100rpx;
+  margin: auto;
+  margin-top: 30rpx;
+  overflow: hidden;
+  position: relative;
+}
+.questions-audio image{
+  width: 21.8rpx;
+  position: absolute;
+  left: 0;
+  bottom: -3rpx;
+  z-index: 1;
+}
+.pu_con{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: auto;
+  height: 100rpx;
+  overflow: hidden;
+}
+.pu_con view{
+  float: left;
+  position: relative;
+  width: 5rpx;
+  margin-right: 3rpx;
+  height: 100rpx;
+}
+.pu_con i{
+  display: block;
+  width: 5rpx;
+  background: #8BD837;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0; 
+}
+audio{
+  display: none;
+}
+.play-box{
+  width: 100%;
+  height: 98rpx;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0rpx;
+  z-index: 1000;
+}
+.play-box.iphoneXfix{
+  padding-bottom: 17rpx;
+}
+.play-box .user-image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 18rpx;
+  margin-left:30rpx;
+}
+.play-box .user-image image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.user-question-content{
+  font-size: 24rpx;
+  color: #76A69A;
+  width: 504rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  top: 5rpx;
+}
+.play-box .user-name{
+  font-size: 24rpx;
+  color: #E0E0E0;
+}
+.user-play-status{
+  float: right;
+  width: 60rpx;
+  height: 60rpx;
+  background: url(http://file.xsawe.top/weixinApp/play.png) no-repeat center;
+  background-size: 60rpx;
+  position: relative;
+  right: 30rpx;
+  top: 18rpx;
+}
+.user-play-status.on{
+  background: url(http://file.xsawe.top/weixinApp/pasue.png) no-repeat center;
+  background-size: 60rpx;
+}
+.image-box{
+  width: 702rpx;
+  margin-left: 24rpx;
+  height: 170rpx;
+  margin-top: 30rpx;
+  position: relative;
+}
+.image-item{
+  width: 226rpx;
+  height: 170rpx;
+  overflow: hidden;
+  position: relative;
+  float:left;
+}
+.image-item:last-child{
+  margin-right: 0;
+  float: right;
+}
+.image-item:first-child{
+  float:left;
+}
+.image-item:nth-child(2){
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.image-item image{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.pop-box{
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  flex-direction:column;
+  justify-content:space-between;
+  box-sizing:border-box;
+  z-index: 10000;
+}
+.show{
+  display: block;
+}
+.main-packet{
+  width: 500rpx;
+  height: 642rpx;
+  background: url(http://file.xsawe.top/weixinApp/packet.png) no-repeat center;
+  background-size: cover;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: none !important;
+}
+.phone-input{
+  width: 80%;
+}
+.get-phone-auth{
+  position: absolute;
+  right: 40rpx;
+  top: 3.6rem; 
+}
+.modal-box input{
+  height:1.9rem;
+  min-height:1.9rem;
+}
+
+.close-btn{
+  width: 60rpx;
+  height: 60rpx;
+  background: url(http://file.xsawe.top/weixinApp/close-btn.png);
+  background-size: 60rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+button.form_button{background-color:transparent;padding:0;margin:0;display:inline;position:static;border:0;padding-left:0;padding-right:0;border-radius:0;font-size:0rpx;color:transparent;}
+
+button.form_button::after{content:'';width:0;height:0;-webkit-transform:scale(1);transform:scale(1);display:none;background-color:transparent;}

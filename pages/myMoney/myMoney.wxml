@@ -1,0 +1,20 @@
+ <view class="container">
+  <view class="total-info">
+    <view class="total-title">累计收入(元)</view>
+    <view class="total-money">{{myMoney}}</view>
+    <view class="get-money" bindtap="getMoney">去提现</view>
+  </view>
+  <view class="detail-title">收支明细</view>
+  <view class="detail-list">
+    <view class="detail-item" wx:for="{{volcanoIncomeList}}" wx:key="{{index}}">
+      <view class="item-title">
+        <view>火山红包雨</view>
+        <view>{{item.creatTime}}</view>
+      </view>
+      <view class="item-money">+ {{item.money}}元</view>
+    </view>
+  </view>
+  <modal hidden="{{getMonetTip}}" class="modal-box" title="" confirm-text="确定" no-cancel="true" bindconfirm="confirm">
+   <text>在各大应用商店搜索“茉莉社区”，安装应用后即可申请提现，若您为首次安装，还可在登录茉莉后额外获得1.5元现金红包奖励！</text>
+  </modal>
+ </view>

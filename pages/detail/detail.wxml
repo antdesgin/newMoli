@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="audio-list-box">
+    <view class="audio-item">
+      <view class="user-image">
+        <image src="{{story.userImage}}"></image>
+      </view>
+      <view class="user-info">
+        <view class="user-name">{{story.userName}}</view>
+        <view class="user-city">{{story.city!=""?story.city:"火星"}}</view>
+      </view>
+      <button class="user-share" open-type="share" plain data-shareTitle="{{story.shareTitle}}" data-shareImg="{{story.shareImg}}" data-shareImg="{{story.shareImg}}" data-voiceId="{{story.id}}">
+        <view class='share-btn'></view>
+        <text>{{story.shareCount}}</text>
+      </button>
+      <view class="questions-btn">
+        <a href="javascript:void(0);"  class="praises {{story.isAgree != 'false'?'like':''}}" bindtap="bindLikeTap" data-isAgree="{{story.isAgree}}" data-voiceId="{{story.id}}">
+        <text>{{story.agreeCount}}点赞</text>
+        </a>
+        <a href="javascript:void(0);" bindtap="play" data-num="0" class="plays audioplay {{_num==0?'on':''}}" data-time="{{story.time}}">
+        <audio id="music_0" bindtimeupdate="audioStart" src="{{story.audioUrl}}" bindended="audioEnd" data-num="0"></audio>
+        <text>{{_num==0?playCountTime:story.time}}</text>
+        </a>
+        <a href="javascript:void(0);" class="replys">
+        <text>{{story.commentCount}}回复</text>
+        </a>
+      </view>
+      <view class="questions-con" data-voiceId="0">
+        <view>{{story.content}}</view>
+      </view>
+      <view wx:if="{{story.image==''}}" class="questions-audio audio_zhu" data-voiceId="0">
+        <image mode="widthFix" src="http://file.xsawe.top/web/activity/activity13/icon-music.png" style="left:{{positionStatus==0?positionX:0}}"></image>
+        <view class="pu_con" style="left:{{positionStatus==0?positionX2:0}}">
+          <view wx:for="{{story.sample}}" wx:key="{{index}}" wx:for-item="i">
+            <i style="height:{{i*100}}rpx;"></i>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{story.image!=''}}" class="image-box">
+        <view wx:for="{{story.image}}" wx:key="{{index}}" wx:for-item="i" class="image-item previewimg">
+          <image bindtap="previewImage" data-src="{{i}}" src="{{i}}" data-imgalist="{{story.image}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="comment-list-box">
+    <view wx:for="{{commengList}}" wx:key="{{index}}" class="comment-item">
+      <view class="comment-user-image">
+        <image src="{{item.userImage}}"></image>
+      </view>
+      <view class="comment-user-info">
+        <view class="comment-user-name">{{item.userName}}</view>
+        <view class="comment-time">{{item.createTime}}</view>
+      </view>
+      <view class="praises {{item.isAgree != 'false'?'like':''}}" bindtap="bindLikeTap" data-index="{{index}}" data-isAgree="{{item.isAgree}}" data-type="0" data-voiceId="{{item.id}}">{{item.agreeCount}}</view>
+      <view class="comment-audio-box" bindtap="commentPlay" data-num="{{index}}">
+        <view class="comment-play-btn {{_commentIndex==index?'on':''}}"></view>
+        <view class="comment-audio"></view>
+        <view class="comment-audio-time">{{_commentIndex==index?playCountTime:item.time}}</view>
+      </view>
+      <audio id="comment_{{index}}" src="{{item.audioUrl}}" bindended="commentAudioEnd"></audio>
+      <view class="comment-text">
+      {{item.content}}
+      </view>
+    </view>
+  </view>
+  <!-- <form bindsubmit="formSubmit" bindreset="formReset" report-submit = "true">
+  <button formType="submit">Submit</button>
+  <input value='{{formId}}'></input>
+  </form> -->
+</view>

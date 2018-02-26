@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class="container">
+  <loading hidden="{{loadingHidden}}">正在载入</loading>
+  <view class="pop-box {{binner==true?'show':''}}" wx:if="{{binner==true}}">
+    <view class="close-btn" bindtap="close"></view>
+    <button class="main-packet" plain bindtap="tatgetRedPacket"></button>
+  </view>
+  <modal  class="modal-box" title="请绑定手机号" confirm-text="确定" no-cancel="true" bindconfirm="confirm" wx:if="{{register}}">
+    <input type="number" maxlength="11" bindinput="bindPhoneInput" class="phone-input" placeholder="请输入手机号" auto-focus/>
+    <view class="get-phone-auth" data-phone="{{phone}}" data-status="{{authStatus}}" bindtap="getPhoneAuth">{{authTip}}</view>
+     <input type="text" maxlength="4" bindinput="bindAuthInput" class="phone-input" placeholder="请输入验证码" auto-focus/>
+  </modal>
+    <!-- bindgetuserinfo="getUserInfo" open-type="getUserInfo" -->
+  <button class='gif {{isIphoneX?"iphoneXfix":""}}' plain bindtap="tatgetRedPacket" hidden="{{checkBinding}}">
+    <image src='http://file.xsawe.top/weixinApp/gif.gif'></image>
+  </button>
+  <view class='play-box {{isIphoneX?"iphoneXfix":""}}'>
+    <progress percent="{{percent}}" activeColor="#31C27C" backgroundColor="#DBDBDB" stroke-width="3" />
+    <view class="user-image">
+      <image src="{{playAvatarUrl}}"></image>
+    </view>
+    <view class="user-info">
+      <view class="user-question-content">{{playContent}}</view>
+      <view class="user-name">{{playNickName}}</view>
+    </view>
+    <view class="user-play-status {{isPlay?'on':''}}" bindtap="changePlayStatus" data-time="{{playCountTime2==null?storyPageList[0].time:playCountTime2}}"></view>
+    
+  </view>
+  <view class="audio-list-box {{isIphoneX?'iphoneXfix':''}}">
+    <view class="audio-item" wx:for="{{storyPageList}}" wx:key="{{index}}">
+      <view class="user-image" bindtap="bindDetailTap" data-userId="{{item.userId}}" data-voiceId="{{item.id}}">
+        <image src="{{item.userImage}}"></image>
+      </view>
+      <view class="user-info">
+        <view class="user-name">{{item.userName}}</view>
+        <view class="user-city">{{item.city!=""?item.city:"火星"}}</view>
+      </view>
+      <button class="user-share" open-type="share" plain data-shareTitle="{{item.shareTitle}}" data-shareImg="{{item.shareImg}}" data-shareImg="{{item.shareImg}}" data-userId="{{item.userId}}"  data-voiceId="{{item.id}}">
+        <view class='share-btn'></view>
+        <text>{{item.shareCount}}</text>
+      </button>
+      <view class="questions-btn">
+        <a href="javascript:void(0);" class="praises {{item.isAgree != 'false'?'like':''}}" bindtap="bindLikeTap" data-isAgree="{{item.isAgree}}" data-index="{{index}}" data-voiceId="{{item.id}}">
+          <text>{{item.agreeCount}}点赞</text>
+        </a>
+        <a href="javascript:void(0);" bindtap="play" data-num="{{index}}" class="plays audioplay {{_num==index?'on':''}}" data-time="{{item.time}}">
+        <audio id="music_{{index}}" bindtimeupdate="audioStart" src="{{item.audioUrl}}" bindended="audioEnd" data-num="{{index}}"></audio>
+        <text>{{_num==index?playCountTime:item.time}}</text>
+        </a>
+        <a href="javascript:void(0);" class="replys">
+        <text>{{item.commentCount}}回复</text>
+        </a>
+      </view>
+      <view class="questions-con" bindtap="bindDetailTap" data-userId="{{item.userId}}" data-voiceId="{{item.id}}">
+        <view>
+        {{item.content}}
+        </view>
+      </view>
+      <view wx:if="{{item.image==''}}" class="questions-audio audio_zhu" bindtap="bindDetailTap" data-voiceId="{{item.id}}">
+        <image mode="widthFix" src="http://file.xsawe.top/web/activity/activity13/icon-music.png" style="left:{{positionStatus==index?positionX:0}}"></image>
+        <view class="pu_con" style="left:{{positionStatus==index?positionX2:0}}">
+          <view wx:for="{{item.sample}}" wx:key="{{index}}" wx:for-item="i">
+            <i style="height:{{i*100}}rpx;"></i>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{item.image!=''}}" class="image-box">
+        <view wx:for="{{item.image}}" wx:for-item="i" class="image-item previewimg">
+          <image bindtap="previewImage" data-src="{{i}}" src="{{i}}" data-imgalist="{{item.image}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

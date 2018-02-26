@@ -1,0 +1,15 @@
+<scroll-view>
+  <view class="container">
+    <view class="countdown" hidden="{{isCountdown}}">
+      {{countdown}}
+    </view>
+    <view class="countdown countdown2" hidden="{{!isCountdown}}">
+      倒计时：{{gameCountdown}}
+    </view>
+    <view style="height:2000rpx;width:100%"></view>
+    <view class="red-packet-box" wx:for="{{array}}" wx:key="{{index}}" style="{{item.viewStyle}}">
+      <image src="{{item.imageUrl}}" bind:touchstart="openPacket" data-index="{{index}}" mode="aspectFit" style="{{item.imageStyle}}" class="{{item.state==1?'hide':''}}" ></image>
+      <label class="{{item.state==1?'show':''}}" style="{{item.labelStyle}}">+{{item.money}}</label>
+    </view>
+  </view>
+</scroll-view>

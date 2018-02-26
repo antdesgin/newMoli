@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/detail",
+    "pages/redPackets/redPackets",
+    "pages/myMoney/myMoney",
+    "pages/game/game"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarTitleText": "茉莉",
+    "navigationBarBackgroundColor": "#31C27C",
+    "navigationBarTextStyle": "white"
+  }
+}
